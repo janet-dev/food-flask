@@ -50,7 +50,7 @@ Its name is a play on the phrase "Python data analysis".
 from flask import Flask, request, render_template
 import pandas as pd
 import requests
-# import webbrowser
+import webbrowser
 # The webbrowser module provides a high-level interface to allow displaying Web-based documents to users.
 
 app = Flask(__name__)
@@ -107,7 +107,7 @@ def run_csv(ingredient, max_time, cuisine):
             # total time to prep and cook recipe - not foolproof as depends on original recipe listing
             time = round(recipe['totalTime'])
             link = recipe['url']
-            # webbrowser.open(link)  # automatically open web browser tabs for each recipe
+            webbrowser.open(link)  # automatically open web browser tabs for each recipe
             # disable during development :)
 
             d.append(
