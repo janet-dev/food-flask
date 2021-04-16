@@ -24,14 +24,19 @@ h1 {
 
 /* layout styling of the 'body' of the page */
 .apple {
-    text-align: left ;
-    padding-left: 100px;
-    padding-right: 100px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-left: 50px;
+    margin-right: 50px;
+
 }
 
 /* search box styling */
 .search-box {
-    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
     border: solid 1px black;
     background-color: rgb(235, 232, 232);
 }
