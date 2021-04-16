@@ -20,79 +20,87 @@
             This <a href="https://codefirstgirls.org.uk/learners/coding-kickstarter/" target="_blank"><strong>Code First Girls:</strong></a> Team 'Apple' Project (April 2021)
             runs a programme written in
             <a href="https://www.python.org/" target="_blank"><strong>Python</strong></a>,
-            to search online for recipes based on an ingredient, cuisine origin and maximum time.
+            to search online for recipes based on an ingredient, cuisine origin, dietary requirements and maximum time.
             It uses the <a href="https://developer.edamam.com/edamam-docs-recipe-api" target="_blank"><strong>Edamam Recipe API</strong></a>
-             to get a dataset of up to ten recipe web links for the user to inspect,
-            which will open up automatically in separate web browser tabs.
+             to get a dataset of up to ten recipe web links for the user to inspect.
             A table in the form of a CSV file, created by the Python library
             <a href="https://pandas.pydata.org/" target="_blank"><strong>Pandas</strong></a>,
             is saved on the user's device for future reference, and then shown on the recipes.html webpage.<br>
             Note: the CSV file is overwritten on each run of the search and a new recipes.html is created.
         </p>
+        <br>
 
         <!-- Form that links to app.py. User inputs their search details here and it is POSTed to app.py -->
         <div>
-            <p>
-                <strong>The Search</strong><br>
-                Please enter your choices below, then click the 'Search' button.
-            </p>
-
             <form class="pure-form pure-form-stacked" method="POST" action="/">
-                Ingredient (one word, <20 letters):<br>
-                <!-- Restricting users to input a single word up to 20 letters long -->
-                <input type="text" pattern="[A-Za-z]{1,20}" class="pure-input" placeholder="avocado" name="userfood" required/><br><br>
-                <!--
-                Cuisine type with 'American' as default
-                -->
-                Cuisine origin:<br>
-                <select id="usercuisine" name="usercuisine" required>
-                    <option>American</option>
-                    <option>Asian</option>
-                    <option>British</option>
-                    <option>Caribbean</option>
-                    <option>Central Europe</option>
-                    <option>Chinese</option>
-                    <option>Eastern Europe</option>
-                    <option>French</option>
-                    <option>Indian</option>
-                    <option>Italian</option>
-                    <option>Japanese</option>
-                    <option>Kosher</option>
-                    <option>Mediterranean</option>
-                    <option>Mexican</option>
-                    <option>Middle Eastern</option>
-                    <option>Nordic</option>
-                </select>
-                <br><br>
-                Maximum preparation & cooking time:<br>
-                <input type="number" min="1" class="pure-input" placeholder="10" name="usertime"  value="10"/> minutes
-                <br><br>
-                <button type="submit" class="pure-button-primary">Search</button>
+                <fieldset class = "search-box">  <!-- Added a border around the search -->
+                    Please enter your choices below, then click the 'Search' button.
+                    <br><br>
+                    Ingredient (one word, <20 letters):<br>
+                    <!-- Restricting users to input a single word up to 20 letters long -->
+                    <input type="text" pattern="[A-Za-z]{1,20}" class="pure-input" placeholder="avocado" name="userfood" required/><br><br>
+                    <!--
+                    Cuisine type with 'American' as default
+                    -->
+                    Cuisine origin:<br>
+                    <select id="usercuisine" name="usercuisine" required>
+                        <option>American</option>
+                        <option>Asian</option>
+                        <option>British</option>
+                        <option>Caribbean</option>
+                        <option>Central Europe</option>
+                        <option>Chinese</option>
+                        <option>Eastern Europe</option>
+                        <option>French</option>
+                        <option>Indian</option>
+                        <option>Italian</option>
+                        <option>Japanese</option>
+                        <option>Kosher</option>
+                        <option>Mediterranean</option>
+                        <option>Mexican</option>
+                        <option>Middle Eastern</option>
+                        <option>Nordic</option>
+                    </select>
+                    <br><br>
+                    Dietary requirements: <br>
+                    <select id="userhealth" name="userhealth" required>
+                        <option>none</option>
+                        <option>vegan</option>
+                        <option>vegetarian</option>
+                        <option>paleo</option>
+                        <option>dairy-free</option>
+                        <option>gluten-free</option>
+                        <option>wheat-free</option>
+                        <option>egg-free</option>
+                        <option>peanut-free</option>
+                        <option>tree-nut-free</option>
+                        <option>soy-free</option>
+                        <option>fish-free</option>
+                        <option>shellfish-free</option>
+                    </select>
+                    <br><br>
+                    Maximum preparation & cooking time:<br>
+                    <input type="number" min="1" class="pure-input" placeholder="10" name="usertime"  value="10"/> minutes
+                    <br>
+                    <button type="submit" class="pure-button button-success ">Search</button>
+
+                    <!-- checking if food 'ingredient' input exists -->
+                    {% if ingredient and max_time %}
+                    <p>
+                        <strong>Search completed!</strong><br>
+		                Here are your
+                        <a href="{{ url_for('recipes_html') }}" target="_blank"><strong><span class = "recipes-link">RECIPES</span></strong></a>. Enjoy cooking!
+                        <br>
+                    </p>
+                    {% endif %}
+                </fieldset>
             </form>
         </div>
+	    <br>
 
         <!-- Jinja2 allows us to insert Python code with curly braces & percent signs
         So, *do NOT* use these, even in comments, as they will be seen
         & cause the dreaded Internal Server Error!-->
-
-        <div>
-            <!-- checking if food 'ingredient' input exists -->
-            {% if ingredient and max_time %}
-                <p>
-                    Search completed!!! You would like <strong>{{cuisine}}</strong> recipes containing <strong>{{ingredient}}</strong>
-                    to take <strong>{{max_time}}</strong> minutes.<br>
-                    Please go to the saved table 'recipe-search.csv' on your device or the
-                    <a href="{{ url_for('recipes_html') }}" target="_blank"><strong>RECIPES</strong></a>
-                     webpage to see the results. Enjoy your cooking!!!
-                </p>
-                <!--
-                'ingredient' in double curly braces is substituting in the user's food choice from the python app.
-                The href link in double curly braces creates an url linking to pandas generated recipes html page,
-                by calling the Python function recipes_html in the app.
-                -->
-            {% endif %}
-        </div>
-
         <p>
             Features created by this Python programme are rendered here on this webpage by the Python library,
             <a href="https://www.udemy.com/course/python-flask-for-beginners/" target="_blank"><strong>Flask</strong></a> and via
