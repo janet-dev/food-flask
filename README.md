@@ -1,4 +1,5 @@
 # food-flask
+
 Python with Flask recipe search app
 <br><br>
 This Code First Girls: Team 'Apple' Project (April 2021) runs a programme written in Python, to search online for recipes based on an ingredient, cuisine origin and maximum time. It uses the Edamam Recipe API to get a dataset of up to ten recipe web links for the user to inspect. A table in the form of a CSV file, created by the Python library Pandas, is saved on the user's device for future reference, and then shown on the recipes.html webpage.
@@ -28,5 +29,8 @@ Users are asked to enter 4 choices:<br>
 <br><br>
 If, for some reason the user types in rubbish for the ingredient, an empty result will be returned from Edamam.<br>
 The program checks for an empty search result and prints an advisory message to the PyCharm console.<br>
-The recipes.html will not be regenerated and the user will see the previous results or no page.<br>
+The recipes.html will not be regenerated and the user will see the previous results or no page.<br><br>
+This program uses the Edamam API Version 1<br>
+https://developer.edamam.com/edamam-docs-recipe-api-v1<br>
+
 
