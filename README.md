@@ -2,19 +2,19 @@
 
 Python with Flask recipe search app
 <br><br>
-This Code First Girls: Team 'Apple' Project (April 2021) runs a programme written in Python, to search online for recipes based on an ingredient, cuisine origin and maximum time. It uses the Edamam Recipe API to get a dataset of up to ten recipe web links for the user to inspect. A table in the form of a CSV file, created by the Python library Pandas, is saved on the user's device for future reference, and then shown on the recipes.html webpage.
+This Project (April 2021) runs a programme written in Python, to search online for recipes based on an ingredient, cuisine origin and maximum time. It uses the Edamam Recipe API to get a dataset of up to ten recipe web links for the user to inspect. A table in the form of a CSV file, created by the Python library Pandas, is saved on the user's device for future reference, and then shown on the recipes.html webpage.
 <br><br>
 Note: the CSV file is overwritten on each run of the search and a new recipes.html is created.<br>
 You will need your own id & key from  https://developer.edamam.com/
 <br><br>
 Features created by this Python programme are rendered here on this webpage by the Python library, Flask and via Jinaj2 templates. Pure.CSS is ridiculously tiny and used to style this page. The entire set of modules clocks in at 3.7KB minified and gzipped. Crafted with mobile devices in mind it was important to keep the file sizes small, and every line of CSS was carefully considered. Pure builds on Normalize.css and provides layout and styling for native HTML elements, plus the most common UI components. Pure is responsive out of the box, so elements look great on all screen sizes.
 <br><br>
-Meet Team 'Apple':<br>
+Meet the Team:<br>
 Aleksandra Kulawska<br>
 Angela Chan<br>
 Janet Dornan
 <br><br>
-A huge thank you to our wonderful, supporting, inspiring instructors:<br>
+A huge thank you to our wonderful, supporting, inspiring mentors:<br>
 Deanna Green<br>
 Rabia Mahmood<br>
 Ellen Wootten
